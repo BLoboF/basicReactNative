@@ -39,11 +39,11 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
-      <FlatList
+      <SafeAreaView style={styles.container}>
+        <FlatList
         data={repositories}
         keyExtractor = {(repository) => repository.id}
         renderItem = {({ item: repository}) => (
-      <SafeAreaView style={styles.container}>
         <View style={styles.repositoryContainer}>
           <Text style={styles.repository}>{repository.title}</Text>
 
@@ -70,9 +70,9 @@ export default function App() {
             <Text style={styles.buttonText}>Like</Text>
           </TouchableOpacity>
         </View>
+        )}
+        />
       </SafeAreaView>
-      )} 
-      />
     </>
   );
 }
